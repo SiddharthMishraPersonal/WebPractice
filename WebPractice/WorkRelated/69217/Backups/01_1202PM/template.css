@@ -1,0 +1,120 @@
+#report {
+    background-color: ActiveCaption;
+    display: inline-block;
+    border: 2px solid black;
+    width: 100%;
+}
+
+#titleOnTop {
+    position: relative;
+    background-color: black;
+    width: 100%;
+    display: inline-block;    
+}
+
+#reportLogo {
+    font-size: 20pt;
+    padding: 6px 16px 6px 16px;
+    line-height: 36px;
+    clear: left;
+    float: right;
+}
+
+#personName {
+    float: left;
+    padding: 6px 16px 6px 16px;
+    line-height: 36px;
+    font-size: 2em;
+}
+
+#alerts {    
+    clear: right;
+    float: left;
+    background-color: white;
+    display: inline-block;
+    width: 100%;
+    margin: 3px;    
+    padding: 6px 16px 6px 16px;
+}
+
+#cards {
+    clear: left;
+    float: left;
+    padding: 6px 16px 6px 16px;
+}
+
+#personLogo {
+    position: relative;
+    background-color: white;
+    width: 100%;
+    display: inline-block;
+}
+
+#shareReport{
+    float: left;
+}
+
+#reportTitle{
+    font-size: 18px;
+    padding: 6px 16px 6px 16px;
+    color: white;
+    float: left;
+    overflow: auto;
+    vertical-align: bottom;
+}
+
+.reportOperationsTitle {
+    font-size: 18px;
+    padding: 6px 16px 6px 16px;
+    color: white;
+    float: left;
+    overflow: auto;
+    vertical-align: central;
+    position: absolute;
+    right: 0px;
+}
+
+.operations{
+    font-family: MotoIcons;
+    float: left;
+    margin-left: 30px;    
+    font-size: 18px;
+    color: white;
+    overflow: auto;
+    vertical-align: central;
+}
+
+.operations div{
+    float: left;
+}
+
+.operations input{
+    background: rgb(165,164,166);
+}
+
+.operations select{
+    min-width: 100px;
+    margin-left: 6px;
+    background: rgb(165,164,166);
+}
+
+
+.card {
+    border: solid thin black;
+    background-color: red;
+    width: 300px;
+    overflow: hidden;
+    padding: 10px;
+    float: left;
+}
+
+.lastCard {
+    border: solid thin black;
+    background-color: red;
+    width: 300px;
+    overflow: hidden;
+}
+
+.heading {
+    font-size: 3em;
+}
