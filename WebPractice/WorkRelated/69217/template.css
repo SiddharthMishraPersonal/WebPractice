@@ -4,6 +4,7 @@
     border: 2px solid black;
     width: Auto;
     font-family: sans-serif;
+    position: fixed;
 }
 
 #titleOnTop {
