@@ -56,6 +56,13 @@
         </div>
         <div id="alerts"></div>
         <div id="cards"></div>
+        <table>
+            <tr>
+                <td id="column1" class="column" valign="top"></td>
+                <td id="column2" class="column" valign="top"></td>
+                <td id="column3" class="column" valign="top"></td>
+            </tr>
+        </table>
     </div>
     <script>
         var template = { "Default": true, "Name": "Person Report", "Cards": [[{ "Header": "Home Address 2", "CardItems": [{ "Keys": ["Address1", "Address2"], "DefaultValue": "No Data", "Label": "Street" }, { "Keys": ["City"], "DefaultValue": "No Data", "Label": "City" }, { "Keys": ["State"], "DefaultValue": "No Data", "Label": "State" }, { "Keys": ["PostalCode"], "DefaultValue": "No Data", "Label": "Zip Code" }] }, { "Header": "Home Address", "CardItems": [{ "Keys": ["Address1", "Address2"], "DefaultValue": "No Data", "Label": "Street" }, { "Keys": ["City"], "DefaultValue": "No Data", "Label": "City" }, { "Keys": ["State"], "DefaultValue": "No Data", "Label": "State" }, { "Keys": ["PostalCode"], "DefaultValue": "No Data", "Label": "Zip Code" }] }, { "Header": "Vehicle Info3", "CardItems": [{ "Keys": ["CarVinSourceA", "CarVinSourceB"], "DefaultValue": "No Data", "Label": "VIN #" }, { "Keys": ["Color"], "DefaultValue": "No Data", "Label": "Color" }, { "Keys": ["Make"], "DefaultValue": "No Data", "Label": "Make" }, { "Keys": ["Model"], "DefaultValue": "No Data", "Label": "Model" }] }], [{ "Header": "Vehicle Info", "CardItems": [{ "Keys": ["CarVinSourceA", "CarVinSourceB"], "DefaultValue": "No Data", "Label": "VIN #" }, { "Keys": ["Color"], "DefaultValue": "No Data", "Label": "Color" }, { "Keys": ["Make"], "DefaultValue": "No Data", "Label": "Make" }, { "Keys": ["Model"], "DefaultValue": "No Data", "Label": "Model" }] }], [{ "Header": "Vehicle Info2", "CardItems": [{ "Keys": ["CarVinSourceA", "CarVinSourceB"], "DefaultValue": "No Data", "Label": "VIN #" }, { "Keys": ["Color"], "DefaultValue": "No Data", "Label": "Color" }, { "Keys": ["Make"], "DefaultValue": "No Data", "Label": "Make" }, { "Keys": ["Model"], "DefaultValue": "No Data", "Label": "Model" }] }]], "Logo": "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" };
@@ -99,7 +106,8 @@
                         continue;
                     }
                     cardsLeft = true;
-                    var cardContainer = createCard(template.Cards[i][cardAt], 0, 0);
+                    var column = document.getElementById("column" + (i + 1));
+                    var cardContainer = createCard(template.Cards[i][cardAt], column);
                     createExpando(cardContainer);
                     //alert(cardCreatedCount);
                     cardCreatedCount++;
@@ -127,7 +135,7 @@
             document.getElementById("alerts").innerText = "alerts go here";
         }
 
-        function createCard(card, column, row) {
+        function createCard(card, column) {
             var cardContainer = document.createElement("div");
             cardContainer.className = "card";
 
@@ -140,18 +148,26 @@
 
             // Adding Header to the Card.
             var heading = document.createElement("P");
-            heading.styleFloat = "left";
-            heading.innerText = card.Header;
+            heading.innerText = card.Header
             heading.className = "heading";
             cardContainer.appendChild(heading);
 
-            var separator = document.createElement("hr");
-            cardContainer.appendChild(separator);
+            for (var i = 0; i < card.CardItems.length; i++) {
+                var cardItem = createLabel(card.CardItems[i]);
+                cardContainer.appendChild(cardItem);
+            }
 
-            var div = createCardTableContent(card);
-            cardContainer.appendChild(div);
+            var tables = column.getElementsByTagName("table");
+            if (tables.length == 0) {
+                var table = document.createElement("table");
+                column.appendChild(table);
 
-            document.getElementById("cards").appendChild(cardContainer);
+                tables = column.getElementsByTagName("table");
+            }
+
+            var tr = tables[0].insertRow();
+            var td = tr.insertCell();
+            td.appendChild(cardContainer);
             return cardContainer;
 
         }
