@@ -1,0 +1,58 @@
+@font-face {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: normal;
+    src: local('Roboto Regular'), local('Roboto-Regular'), url(../fonts/Roboto-Regular.woff) format('woff');
+}
+@font-face {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: bold;
+    src: local('Roboto Bold'), local('Roboto-Bold'), url(../fonts/Roboto-Bold.woff) format('woff');
+}
+@font-face {
+    font-family: "Roboto";
+    font-style: italic;
+    font-weight: normal;
+    src: local('Roboto Italic'), local('Roboto-Italic'), url(../fonts/Roboto-Italic.woff) format('woff');
+}
+@font-face {
+    font-family: "Roboto";
+    font-style: italic;
+    font-weight: bold;
+    src: local('Roboto Bold Italic'), local('Roboto-BoldItalic'), url(../fonts/Roboto-BoldItalic.woff) format('woff');
+}
+@font-face {
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    /*src: local('Glyphicons Halflings'), local('Glyphicons Halflings'), url( ../fonts/glyphicons-halflings-regular.eot);*/
+    src: local('Glyphicons Halflings'), local('Glyphicons Halflings'), url('glyphicons-halflings-regular.woff') format('woff');
+/*, url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');*/
+}
+@font-face {
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    /*src: local('Glyphicons Halflings'), local('Glyphicons Halflings'), url( ../fonts/glyphicons-halflings-regular.eot);*/
+    src: local('Glyphicons Halflings'), local('Glyphicons Halflings'), url('glyphicons-halflings-regular.woff') format('woff');
+    /*, url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');*/
+}
+
+@font-face {
+    font-family: 'MotoIcons';
+    font-style: normal;
+    src: local('MotoIcons'), local('MotoIcons'), url('MotoIcons.woff') format('woff');
+}
+
+@font-face {
+    font-family: "Symbol";
+    font-style: normal;
+    font-weight: normal;
+    src: local('Symbol'), local('Symbol-Regular'), url(symbol.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: "MyFrame";
+    font-style: normal;
+    font-weight: normal;
+    src: local('MyFrame'), url(../fonts/myframe.woff) format('woff');
+}

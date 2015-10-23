@@ -3,6 +3,7 @@
     <meta charset="UTF-8" />
     <title>RIC Report</title>
     <link rel="stylesheet" href="template.css" />
+    <link rel="stylesheet" href="../../lib/fonts/fonts.css" />
 </head>
 <body>
     <div id="report">
@@ -12,10 +13,6 @@
             <div class="reportOperationsTitle">
                 <div class="operations">
                     <input type="button" id="highlightButton" class="highlight" value="H" />
-                    <!--<div class='togglebox'>
-                        <input type='checkbox' id='chkbx'>
-                        <label for='chkbx'><b></b></label>
-                    </div>-->
                 </div>
                 <div class="operations">
                     <span></span>
@@ -73,7 +70,7 @@
 
         // Populates the report.
         function populateReport(template) {
-            document.getElementById("personName").innerText = "Siddharth Mishra";
+            document.getElementById("personName").innerText = "Criminal's Name";
             document.getElementById("templateSelect").innerText = "Template: ";
             document.getElementById("shareReport").innerText = "Share: ";
             document.getElementById("reportTitle").innerText = template.Name;
@@ -169,7 +166,6 @@
             var td = tr.insertCell();
             td.appendChild(cardContainer);
             return cardContainer;
-
         }
 
         function createCardTableContent(card) {
@@ -374,19 +370,7 @@
                 selectAllCheckbox.checked = false;
             }
         }
-
-        // Template Actions
-        function templateAction(templateActionList) {
-            var actionAct = templateActionList.selectedOptions[0].getAttribute("action");
-            alert("Functionality '" + actionAct + "' is under progress.");
-        }
-
-
-        function templateChanged(templateList) {
-            var actionAct = templateList.selectedOptions[0].getAttribute("action");
-            alert("Functionality '" + actionAct + "' is under progress.");
-        }
-
+        
         // Share Features
         var iv = undefined;
 
@@ -448,6 +432,23 @@
             } catch (e) {
                 alert('callReportMethod ' + e);
             }
+        }
+
+        // Template Actions
+        function templateAction(templateActionList) {
+            var actionAct = templateActionList.selectedOptions[0].getAttribute("action");
+            alert("Functionality '" + actionAct + "' is under progress.");
+        }
+
+
+        function templateChanged(templateList) {
+            var actionAct = templateList.selectedOptions[0].getAttribute("action");
+            alert("Functionality '" + actionAct + "' is under progress.");
+        }
+
+        function getTemplate(templateName) {
+            var objXMLHttpRequest = new XMLHttpRequest();
+            objXMLHttpRequest.open("method", "<serviceUrl>", isAsync);
         }
 
     </script>
