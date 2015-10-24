@@ -75,6 +75,15 @@
     vertical-align: middle;
 }
 
+.motorolaLogo {
+    font-family:MotoIcons;
+    font-size:20pt;
+    overflow: auto;
+    color:rgb(39,179,225);
+    padding: 3px 0px 6px 6px;
+    float:left;
+}
+
 .reportOperationsTitle {
     font-size: 16px;
     font-family: sans-serif;
@@ -99,7 +108,7 @@
     font-family: Roboto, 'Helvetica Neue', Helvetica, Arial, sans-serif;
     float: left;
     margin-left: 5px;
-    font-size: 10pt;
+    font-size: 11pt;
     color: white;
     overflow: auto;
     vertical-align: central;
