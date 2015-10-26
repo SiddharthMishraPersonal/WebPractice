@@ -16,13 +16,6 @@
     display: inline-block;
 }
 
-    #titleOnTop img {
-        margin: 5px;
-        width: 25px;
-        height: 25px;
-        float: left;
-    }
-
 #reportLogo {
     font-size: 20pt;
     padding: 6px 6px 6px 6px;
@@ -34,7 +27,7 @@
 #personName {
     float: left;
     padding: 9px 6px 6px 6px;
-    font-family:Roboto, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: Roboto, 'Helvetica Neue', Helvetica, Arial, sans-serif;
     line-height: 36px;
     font-size: 16px;
 }
@@ -42,7 +35,7 @@
 #alerts {
     clear: right;
     float: left;
-    font-family:Roboto, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: Roboto, 'Helvetica Neue', Helvetica, Arial, sans-serif;
     background-color: white;
     display: inline-block;
     width: 100%;
@@ -76,12 +69,12 @@
 }
 
 .motorolaLogo {
-    font-family:MotoIcons;
-    font-size:20pt;
+    font-family: MotoIcons;
+    font-size: 20pt;
     overflow: auto;
-    color:rgb(39,179,225);
+    color: rgb(39,179,225);
     padding: 3px 0px 6px 6px;
-    float:left;
+    float: left;
 }
 
 .reportOperationsTitle {
@@ -116,11 +109,7 @@
 
     .operations div {
         float: left;
-    }
-
-    .operations input {
-        background: rgb(165,164,166);
-    }
+    }   
 
     .operations select {
         margin-left: 6px;
@@ -128,18 +117,21 @@
         max-width: 125px;
     }
 
-.highlight {
+.highlightOff {
     width: 25px;
     height: 25px;
     border: 1px solid white;
-    background: transparent;
+    background: rgb(165,164,166);
     color: white;
 }
 
-    .highlight.on {
-        background: yellow;
-        color: black;
-    }
+.highlightOn {
+    width: 25px;
+    height: 25px;
+    border: 1px solid white;
+    background: yellow;
+    color: black;
+}
 
 .card {
     background-color: white;
@@ -148,7 +140,7 @@
     overflow: hidden;
     padding: 5px;
     float: left;
-    margin: 2px;
+    margin: 2px 2px 2px 2px;
 }
 
     .card input {
@@ -201,4 +193,14 @@
 .expando {
     position: relative;
     left: 250px;
+}
+
+.highlightTextOn {
+    background: yellow;
+    color: black;
+}
+
+.highlightTextOff {
+    background: transparent;
+    color: black;
 }
