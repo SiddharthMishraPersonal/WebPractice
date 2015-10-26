@@ -98,10 +98,10 @@
 
         // Populates the report.
         function getReport(template) {
-            //var reportPageDiv = document.getElementById("report");
-            //reportPageDiv.onmousedown = function () { reportPageDivMouseDown(event); }
-            //reportPageDiv.onmousemove = function () { reportPageDivMouseMove(event); }
-            //reportPageDiv.onmouseup = function () { reportPageDivMouseUp(event); }
+            var reportPageDiv = document.getElementById("report");
+            reportPageDiv.onmousedown = function () { reportPageDivMouseDown(event); }
+            reportPageDiv.onmousemove = function () { reportPageDivMouseMove(event); }
+            reportPageDiv.onmouseup = function () { reportPageDivMouseUp(event); }
 
             document.getElementById("personName").innerText = "Criminal's Name";
             document.getElementById("templateSelect").innerText = "Template: ";
@@ -561,8 +561,8 @@
         var endPoint = {};
 
         function reportPageDivMouseDown(e) {
-            event.stopPropagation();
-            event.preventDefault();
+            //e.stopPropagation();
+            //e.preventDefault();
 
             // Proceed only if Highlighting
             if (!isHighlightingOn) {
@@ -572,26 +572,26 @@
             startPoint.x = e.pageX;
             startPoint.y = e.pageY;
 
-            var rubberBand = document.getElementById("rubberband");
-            rubberband.style.top = startPoint.y;
-            rubberband.style.left = startPoint.x;
-            rubberband.style.height = 1;
-            rubberband.style.width = 1;
-            rubberband.style.position = "absolute";
-            rubberband.style.display = 'block';
+            var rband = document.getElementById("rubberband");
+            rband.style.top = startPoint.y;
+            rband.style.left = startPoint.x;
+            rband.style.height = 1;
+            rband.style.width = 1;
+            rband.style.position = "absolute";
+            rband.style.display = 'block';
         }
 
         function reportPageDivMouseMove(e) {
-            event.stopPropagation();
-            event.preventDefault();
+            e.stopPropagation();
+            e.preventDefault();
 
             // Proceed only if Highlighting
             if (!isHighlightingOn) {
                 return
             }
 
-            var rubberBand = document.getElementById("rubberband");
-            if (rubberband.offsetLeft <= 0) {
+            var rband = document.getElementById("rubberband");
+            if (rband.offsetLeft <= 0) {
                 return;
             }
 
@@ -604,24 +604,21 @@
             var heightCalculation = e.pageY - startPoint.y;
             var newHeight = (e.pageY > startPoint.y) ? heightCalculation : (heightCalculation * -1);
 
-            rubberband.style.top = newTop;
-            rubberband.style.left = newLeft;
-            rubberband.style.height = newHeight;
-            rubberband.style.width = newWidth;
-            rubberband.style.position = "absolute";
+            rband.style.top = newTop;
+            rband.style.left = newLeft;
+            rband.style.height = newHeight;
+            rband.style.width = newWidth;
+            rband.style.position = "absolute";
         }
 
         function reportPageDivMouseUp(e) {
-            event.stopPropagation();
-            event.preventDefault();
-
             // Proceed only if Highlighting
             if (!isHighlightingOn) {
-                return
+                return;
             }
 
-            var rubberBand = document.getElementById("rubberband");
-            rubberband.style.display = 'none';
+            var rband = document.getElementById("rubberband");
+            rband.style.display = 'none';
 
             endPoint.x = e.pageX;
             endPoint.y = e.pageY;
@@ -637,8 +634,14 @@
             for (var i = 0; i < allLabels.length; i++) {
                 var label = allLabels[i];
                 var lablePosition = getPosition(label);
-                var afterStartPoint = lablePosition.x >= startPoint.x - 10 && lablePosition.y >= startPoint.y - 10;
-                var beforeEndPoint = lablePosition.x <= endPoint.x - 10 && lablePosition.y <= endPoint.y - 10;
+
+                if (startPoint.x <= endPoint.x && startPoint.y <= endPoint.y) {
+                    var afterStartPoint = lablePosition.x >= startPoint.x - 10 && lablePosition.y >= startPoint.y - 10;
+                    var beforeEndPoint = lablePosition.x <= endPoint.x - 10 && lablePosition.y <= endPoint.y - 10;
+                } else {
+                    var afterStartPoint = lablePosition.x <= startPoint.x - 10 && lablePosition.y <= startPoint.y - 10;
+                    var beforeEndPoint = lablePosition.x >= endPoint.x - 10 && lablePosition.y >= endPoint.y - 10;
+                }
 
                 if (afterStartPoint && beforeEndPoint) {
 
