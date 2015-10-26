@@ -176,6 +176,18 @@
         float: right;
     }
 
+    .disabledcard P{
+        color: lightgray;
+    }
+
+    .disabledcard table td P{
+        color: lightgray;
+    }
+
+    .disabledcard table td label{
+        color: lightgray;
+    }
+
 .lastCard {
     border: solid thin black;
     background-color: red;
