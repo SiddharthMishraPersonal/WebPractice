@@ -2,11 +2,12 @@
 <head lang="en">
     <meta charset="UTF-8" />
     <title>RIC Report</title>
-    <link rel="stylesheet" href="template.css" />
+    <link rel="stylesheet" href="reportPage.css" />
     <link rel="stylesheet" href="../../lib/fonts/fonts.css" />
 </head>
 <body>
     <div id="report">
+        <div id="rubberband" style="border:1px solid green;display:none; background-color: lightblue; opacity: 0.30"></div>
         <div id="titleOnTop">
             <div class="motorolaLogo">!</div>
             <div id="reportTitle"></div>
@@ -97,6 +98,11 @@
 
         // Populates the report.
         function getReport(template) {
+            //var reportPageDiv = document.getElementById("report");
+            //reportPageDiv.onmousedown = function () { reportPageDivMouseDown(event); }
+            //reportPageDiv.onmousemove = function () { reportPageDivMouseMove(event); }
+            //reportPageDiv.onmouseup = function () { reportPageDivMouseUp(event); }
+
             document.getElementById("personName").innerText = "Criminal's Name";
             document.getElementById("templateSelect").innerText = "Template: ";
             document.getElementById("shareReport").innerText = "Share: ";
@@ -232,7 +238,7 @@
                 tableRow.appendChild(tableCol);
 
                 // Insert separator
-                var colonLabel = document.createElement("label");
+                var colonLabel = document.createElement("P");
                 colonLabel.innerText = ":";
                 tableCol = document.createElement("td");
                 tableCol.appendChild(colonLabel);
@@ -547,6 +553,120 @@
         function getTemplate(templateName) {
             var objXMLHttpRequest = new XMLHttpRequest();
             objXMLHttpRequest.open("method", "<serviceUrl>", isAsync);
+        }
+
+        // Rubberband selection approach.
+
+        var startPoint = {};
+        var endPoint = {};
+
+        function reportPageDivMouseDown(e) {
+            event.stopPropagation();
+            event.preventDefault();
+
+            // Proceed only if Highlighting
+            if (!isHighlightingOn) {
+                return
+            }
+
+            startPoint.x = e.pageX;
+            startPoint.y = e.pageY;
+
+            var rubberBand = document.getElementById("rubberband");
+            rubberband.style.top = startPoint.y;
+            rubberband.style.left = startPoint.x;
+            rubberband.style.height = 1;
+            rubberband.style.width = 1;
+            rubberband.style.position = "absolute";
+            rubberband.style.display = 'block';
+        }
+
+        function reportPageDivMouseMove(e) {
+            event.stopPropagation();
+            event.preventDefault();
+
+            // Proceed only if Highlighting
+            if (!isHighlightingOn) {
+                return
+            }
+
+            var rubberBand = document.getElementById("rubberband");
+            if (rubberband.offsetLeft <= 0) {
+                return;
+            }
+
+            var newTop = (e.pageY > startPoint.y) ? startPoint.y : e.pageY;
+            var newLeft = (e.pageX >= startPoint.x) ? startPoint.x : e.pageX;
+
+            var widthCalculation = e.pageX - startPoint.x;
+            var newWidth = (e.pageX > startPoint.x) ? widthCalculation : (widthCalculation * -1);
+
+            var heightCalculation = e.pageY - startPoint.y;
+            var newHeight = (e.pageY > startPoint.y) ? heightCalculation : (heightCalculation * -1);
+
+            rubberband.style.top = newTop;
+            rubberband.style.left = newLeft;
+            rubberband.style.height = newHeight;
+            rubberband.style.width = newWidth;
+            rubberband.style.position = "absolute";
+        }
+
+        function reportPageDivMouseUp(e) {
+            event.stopPropagation();
+            event.preventDefault();
+
+            // Proceed only if Highlighting
+            if (!isHighlightingOn) {
+                return
+            }
+
+            var rubberBand = document.getElementById("rubberband");
+            rubberband.style.display = 'none';
+
+            endPoint.x = e.pageX;
+            endPoint.y = e.pageY;
+
+            findElementsWithinCoordinates();
+        }
+
+        function findElementsWithinCoordinates() {
+            var allLabels = document.getElementsByTagName("label");
+            //alert(allLabels)
+            //alert(startPoint.x + "," + startPoint.y)
+            //alert(endPoint.x + "," + endPoint.y)
+            for (var i = 0; i < allLabels.length; i++) {
+                var label = allLabels[i];
+                var lablePosition = getPosition(label);
+                var afterStartPoint = lablePosition.x >= startPoint.x - 10 && lablePosition.y >= startPoint.y - 10;
+                var beforeEndPoint = lablePosition.x <= endPoint.x - 10 && lablePosition.y <= endPoint.y - 10;
+
+                if (afterStartPoint && beforeEndPoint) {
+
+                    highlightText(label);
+                }
+            }
+
+
+        }
+
+        function getPosition(element) {
+            var xPosition = 0;
+            var yPosition = 0;
+            var xbPosition = 0;
+            var ybPosition = 0;
+
+            while (element) {
+                // Left Top
+                xPosition += (element.offsetLeft - element.scrollLeft + element.clientLeft);
+                yPosition += (element.offsetTop - element.scrollTop + element.clientTop);
+
+                // Right Bottom
+                xbPosition = xPosition + element.width;
+                ybPosition = yPosition + element.height;
+
+                element = element.offsetParent;
+            }
+            return { x: xPosition, y: yPosition, xb: xbPosition, yb: ybPosition };
         }
 
     </script>
