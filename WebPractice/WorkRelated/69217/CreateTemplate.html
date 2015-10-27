@@ -2,8 +2,8 @@
 <head lang="en">
     <meta charset="UTF-8" />
     <title>RIC Report</title>
-    <link rel="stylesheet" href="template.css" />
-    <link rel="stylesheet" href="fonts/fonts.css" />
+    <link rel="stylesheet" href="reportPage.css" />
+    <link rel="stylesheet" href="../../lib/fonts/fonts.css" />
 </head>
 <body>
     <div id="report">
@@ -406,6 +406,7 @@
 
         // Toggle Highlighting
         function toggleHighlighting(toggleButton) {
+
             isHighlightingOn = !isHighlightingOn;
             if (!isHighlightingOn) {
                 highlightedControls = document.getElementsByTagName("label");
@@ -473,8 +474,16 @@
                 }
 
                 if (actionAct === 'createpdf') {
-                    var innerHtml = document.getElementsByTagName("html")[0].innerHTML;
-                    createPDF(innerHtml);
+                    //var innerHtml = document.getElementsByTagName("html")[0].innerHTML;
+                    //createPDF(innerHtml);
+
+                    try {
+                        var innerHtml = document.documentElement.innerHTML;
+                        createPDF(innerHtml);
+                    } catch (e) {
+                        alert(e.toString());
+                    }
+
                     shouldCloseReportWindow = true;
                 }
 
