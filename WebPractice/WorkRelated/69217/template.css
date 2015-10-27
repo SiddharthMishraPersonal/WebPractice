@@ -1,9 +1,12 @@
+/*body {
+    -webkit-print-color-adjust:exact;
+}*/
 #report {
     background-color: lightgray;
     display: inline-block;
     border: 2px solid black;
     width: Auto;
-    font-family: sans-serif;    
+    font-family: sans-serif;
     font-family: Roboto, 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
@@ -67,13 +70,20 @@
     vertical-align: middle;
 }
 
-.motorolaLogo {
+/*.motorolaLogo {
     font-family: MotoIcons;
     font-size: 20pt;
     overflow: auto;
     color: rgb(39,179,225);
     padding: 3px 0px 6px 6px;
     float: left;
+}*/
+
+.motorolaLogo {
+    padding: 3px 0px 0px 6px;
+    float: left;
+    margin: 5px;
+    margin-top: 6px;
 }
 
 .reportOperationsTitle {
@@ -108,7 +118,7 @@
 
     .operations div {
         float: left;
-    }   
+    }
 
     .operations select {
         margin-left: 6px;
@@ -161,6 +171,19 @@
         margin: 3px;
     }
 
+.printCards {
+    background-color: transparent;
+    border: 1px transparent solid;
+    width: 300px;
+    overflow: hidden;
+    padding: 5px;
+    float: left;
+    margin: 2px;
+}
+.printCards * {
+    display: none !important;
+}
+
 .disabledcard {
     background-color: grey;
     border: 1px gray solid;
@@ -171,21 +194,35 @@
     margin: 2px;
 }
 
-    .disabledcard input {
-        float: right;
+@media print {
+    .operations, .operations * {
+        display: none !important;
     }
+    .disabledcard {
+        width: 300px;
+        height: 250px;
+        border: 1px transparent solid;
+    }
+        .disabledcard * {
+            display: none !important;
+        }
+}
 
-    .disabledcard P{
-        color: lightgray;
-    }
+.disabledcard input {
+    float: right;
+}
 
-    .disabledcard table td P{
-        color: lightgray;
-    }
+.disabledcard P {
+    color: lightgray;
+}
 
-    .disabledcard table td label{
-        color: lightgray;
-    }
+.disabledcard table td P {
+    color: lightgray;
+}
+
+.disabledcard table td label {
+    color: lightgray;
+}
 
 .lastCard {
     border: solid thin black;
